@@ -19,7 +19,33 @@
     width:17vw;
     border: 1px solid #929499;
     font-size: medium;
+
 }
+.input1::-webkit-input-placeholder {
+    color: #AAA;
+  }
+  
+  input1:focus::-webkit-input-placeholder {
+    color: dodgerblue;
+  }
+  
+  .input1:focus+.underline {
+    transform: scale(1);
+  }
+  
+  .underline {
+    position: absolute;
+    margin-top: 50px;
+    left:41.5%;
+    background-color: dodgerblue;
+    display: inline-block;
+    height: 2px;
+    width:17vw;
+    -webkit-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+  }
 
 .background1{
     background-color: rgba(0, 0, 0, 0.93);
@@ -36,6 +62,11 @@
         border: 1px solid #929499;
         font-size: medium;
     }
+    .underline {
+        height: 2px;
+        width:25vw;
+        left:38%;
+      }
 }
 
 
@@ -58,7 +89,13 @@
         width:35vw;
         border: 1px solid #929499;
         font-size: small;
+        
     }
+    .underline {
+        height: 2px;
+        width:35vw;
+        left:33%;
+      }
 }
 
 
@@ -85,16 +122,17 @@
         width:80vw;
         border: 1px solid #929499;
         font-size: small;
+        right:10px
     }
+    .underline {
+        margin-top: 0px;
+        height: 2px;
+        width:80vw;
+        left:13%;
+      }
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: rgb(221, 221, 221);
     font-size: small;
    }
-.input:active{
-    border: 1px solid rgb(236, 231, 231);
-}
-.input:invalid{
-    border: 1px solid red;
-}
