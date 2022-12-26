@@ -1,8 +1,8 @@
 .container1{
     border-radius: 5px;
     color:whitesmoke;
-    width: 530px;
-    height: 700px;
+    width: 500px;
+    height: 650px;
     background-color: #202020;
 }
 
@@ -16,7 +16,7 @@
     color:rgb(255, 255, 255);
     border-radius: 6px;
     height:50px;
-    width:17vw;
+    width:272px;
     border: 1px solid #929499;
     font-size: medium;
 
@@ -51,6 +51,12 @@
     background-color: rgba(0, 0, 0, 0.93);
 }
 
+.password {
+    position:absolute;
+    left:56%;
+     margin-top:26px;
+}
+
 @media screen and (max-width: 1300px){
     .input1{
         text-align: center;
@@ -67,6 +73,9 @@
         width:25vw;
         left:38%;
       }
+    .password{
+        left:59%;
+    }
 }
 
 
@@ -96,11 +105,17 @@
         width:35vw;
         left:33%;
       }
+      .password{
+        left:62.5%;
+    }
 }
 
 
 @media screen and (max-width: 500px){
-
+    
+    .status{
+        margin-top: 60%;
+    }
     .background1{
         background-color: #202020;
     }
@@ -122,17 +137,85 @@
         width:80vw;
         border: 1px solid #929499;
         font-size: small;
-        right:10px
+        right:10px;
     }
+    
     .underline {
         margin-top: 0px;
         height: 2px;
         width:80vw;
         left:13%;
       }
+      .password{
+        position: absolute;
+        margin-left:15%;
+        margin-top: -25px;
+    }
+    .buttons{
+        width:200px;
+    }
+      @media screen and (max-width:420px){
+      .password{
+        position: absolute;
+        margin-left:21%;
+        margin-top: -25px;
+    }
+    .buttons{
+        width:200px;
+    }
+}
+}
+
+@media screen and (max-width:375px){
+    .buttons{
+        width:200px;
+    }
+    .password{
+        position: absolute;
+        margin-left:50px;
+        margin-top: 3.6vh;
+    }
+    .input1{
+        text-align: center;
+        background-color: #202020;
+        color:rgb(255, 255, 255);
+        border-radius: 6px;
+        height:50px;
+        width:80vw;
+        border: 1px solid #929499;
+        font-size: small;
+        right:10px;
+    }
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: rgb(221, 221, 221);
     font-size: small;
    }
+.buttons{
+    width:45%;
+    margin-top: 3%;
+    border: 2px solid black;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgb(34, 114, 34);
+}
+.buttons:hover{
+    -webkit-box-shawon:0 0 10px rgba(34, 114, 34, .90);
+    box-shadow: 0 0 10px rgba(34, 114, 34, .90);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+body{
+    font-family:serif
+}
+.status{
+    background-color: white;
+    height: 25px;
+    width:25px;
+    display:inline-block;
+    border-radius:50%;
+    margin-top:8%;
+    transition: background-color .8s ease-in-out;
+}
+

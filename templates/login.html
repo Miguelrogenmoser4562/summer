@@ -1,27 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/c49df518a2.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/static/style.css">
         <title>Login</title>
     </head>
-    <body class="background1" style="display: flex; align-items: center; justify-content: center; padding: 8%;">
+    <body class="background1" style="display: flex; align-items: center; justify-content: center; padding: 2%;">
         <div class="container1 text-center"> 
             <div style="padding-top:7%">
                 <img class="logo" style="width:28%" src="/static/logo.jpg" alt="logo">
             </div>
-            <div style="padding-top:8%">
-                <p style="font-family:serif; font-size: 21px; font-weight: 300;">Login to your account</p>
-            </div>
-            <div style="padding-top: 7%">
-                <input class="input1" required type="text" name="username" placeholder="Username or email">
-                <span class="underline"></span>
-            </div>
-            <div style="padding-top: 5%">
-                <input class="input1" required type="text" name="username" placeholder="Password">
-                <span class="underline"></span>
-            </div>
+            <form>
+                <div style="padding-top:8%">
+                    <p style="font-size: 21px; font-weight: 300;">Login to your account</p>
+                </div>
+                <div style="padding-top: 7%">
+                    <input class="input1" required type="text" name="username" placeholder="Username or email">
+                    <span class="underline"></span>
+                </div>
+                <div style="padding-top: 5%">
+                    <input class="input1" id="password_id_icon" required type="password" name="username" placeholder="Password">
+                    <i onclick="password()"  id="icon" class="fa-sharp fa-solid fa-eye fa-lg password"></i>
+                </div>
+                <div style="padding-top: 4%;">
+                    <button class="buttons">Login</button>
+                </div>
+                <div style="padding-top:3%; font-size: 100%;">
+                    <p style="float:center;">Forgot password?</p>
+                    <a href="/register" style="text-decoration:none; color:whitesmoke; float:center;">Don't have an account?</a>
+                </div>
+                
+            </form>
         </div>
     </body>
+    <script>
+        function password(){
+            var state = document.getElementById("password_id_icon");
+            if (state.type === "password"){
+                state.type = "text";
+                document.getElementById("icon").classList.remove('fa-eye')  
+                document.getElementById("icon").classList.add('fa-eye-slash')
+            }
+            else{
+                state.type = "password";
+                document.getElementById("icon").classList.remove('fa-eye-slash')
+                document.getElementById("icon").classList.add('fa-eye')  
+            }
+        }
+    </script>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/c49df518a2.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Register</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script>
+            function color_request(){
+                var ajax = new XMLHttpRequest();
+                ajax.onreadystatechange = function(){
+                    if (ajax.readyState == 4 && ajax.status == 200){
+                        $("#div").html(ajax.responseText);
+                        document.getElementById("one").style.backgroundColor = "green";
+                    }
+                }
+                ajax.open("POST", "/register", true);
+                ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                ajax.send("phone_number=" + document.getElementById("username").value);
+
+            }
+            function password(){
+            var state = document.getElementById("password_id_icon");
+            if (state.type === "password"){
+                state.type = "text";
+                document.getElementById("icon").classList.remove('fa-eye')  
+                document.getElementById("icon").classList.add('fa-eye-slash')
+            }
+            else{
+                state.type = "password";
+                document.getElementById("icon").classList.remove('fa-eye-slash')
+                document.getElementById("icon").classList.add('fa-eye')  
+            }
+        }
+        </script>
+    </head>
+    <body class="background1" style="display: flex; align-items: center; justify-content: center; padding: 2%;">
+        <div class="container1 text-center"> 
+            <div style="padding-top:7%">
+                <img class="logo" style="width:15%" src="/static/logo.jpg" alt="logo">
+            </div>
+            <div id="div">
+                <div style="padding-top:8%">
+                    <p style="font-family:serif; font-size: 30px; font-weight: 300;">Step 1: Make an account</p>
+                </div>
+                <div style="padding-top: 7%">
+                    <input class="input1" required type="text" id="username" placeholder="Username or email">
+                    <span class="underline"></span>
+                </div>
+                <div style="padding-top: 5%">
+                    <input class="input1" id="password_id_icon" required type="password" name="username" placeholder="Password">
+                    <i onclick="password()"  id="icon" class="fa-sharp fa-solid fa-eye fa-lg password"></i>
+                </div>
+                <div style="padding-top: 6%;">
+                    <button class="buttons" onclick="color_request()">Next</button>
+                </div>
+            </div>
+                <div style="padding-top:4%">
+                <span id="one" class="status" style="margin-right:10px"></span>
+                <span class="status" style="margin-left:20px"></span>
+                <span class="status" style="margin-left:20px;"></span>
+                </div>
+            </div>            
+        </div>
+    </body>
+</html>
