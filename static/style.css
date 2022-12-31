@@ -219,3 +219,14 @@ body{
     transition: background-color .8s ease-in-out;
 }
 
+.error{
+    margin-top:3%;
+    margin-left:25%;
+    text-align: center;
+    border-radius: 5px;
+    height:6.5%;
+    background-color: rgba(213, 24, 24, .95);
+    border: 2px solid black;
+    width:55%;
+    color: black;
+}
