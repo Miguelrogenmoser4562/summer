@@ -20,7 +20,7 @@
         <title>Login</title>
     </head>
     <body class="background1" style="display: flex; align-items: center; justify-content: center; padding: 2%;">
-            <div class="container1 text-center animate_start" id="div"> 
+            <div class="container1 text-center animate_start" id="div" style="margin-top:5vh"> 
                 {% if error == "none"%}
                 <div style="padding-top:7%">
                     <img class="logo" style="width:23%" src="/static/logo.jpg" alt="logo">
@@ -39,7 +39,7 @@
                 </div>
                 <form action="/register" method="post" id="form">
                     <div style="padding-top: 7%">
-                        <input class="input1" required type="text" oninput="email_check" name="Email" id="Email" placeholder="Email" value="{{Email}}">
+                        <input class="input1" required type="text" autocomplete="off" oninput="email_check" name="Email" id="Email" placeholder="Email" value="{{Email}}">
                         <span class="underline"></span>
                         <p style="color:red; height:2%; display:none; margin-bottom: 5px; margin-top: -15px;" id="error"></p>
                     </div>

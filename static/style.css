@@ -12,7 +12,7 @@ html {
 }
 ul {
     list-style-type: none;
-    margin-top: 1.8%;
+    margin-top: 1.6%;
   }
 li{
     border:none;
@@ -30,6 +30,32 @@ a:hover{
     border-bottom: 2.5px solid rgba(8, 160, 23, 1);
 }
 
+#home{
+    border:2px solid rgb(44, 44, 44); 
+    border-radius: 2rem; 
+    width:85%; 
+    margin-left: 7.5%; 
+    height: 70%; 
+    background-color: #202020; 
+    margin-top:5vh;
+    animation: colors 3s infinite linear;
+}
+
+@-webkit-keyframes colors {
+    0%  { -webkit-box-shadow: 0 0 10px rgba(0, 255, 0, 0.9);  }
+    25% { -webkit-box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  } 
+    50% { -webkit-box-shadow: 0 0 10px rgba(33, 106, 33, 0.9);  }
+    75% { -webkit-box-shadow: 0 0 10px rgba(39, 160, 39, 0.9);  }
+    100% { -webkit-box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  }
+  }
+  
+  @keyframes colors { 
+    0%  { box-shadow: 0 0 10px rgba(0, 255, 0, 0.9);  }
+    25% { box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  } 
+    50% { box-shadow: 0 0 10px rgba(33, 106, 33, 0.9);  }
+    75% { box-shadow: 0 0 10px rgba(39, 160, 39, 0.9);  }
+    100% { box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  }
+  }
 .container1{
     margin-top: 5%;
     border-radius: 5px;

@@ -27,7 +27,8 @@ def start_data():
 def home():
     if session.get("user_id") == None:
         return redirect("/login")
-    return render_template("home.html")
+    Username = db.session.query(User.username).filter(User.id == session["user_id"]).all()[0].username
+    return render_template("home.html", Username=Username)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -44,7 +45,7 @@ def login():
             return render_template("login.html", error="Missing info", Password=Password, Username=Username)
         User_data = db.session.query(User.username, User.email, User.password, User.id).all()
         if len(User_data) == 0:
-                return render_template("login.html", error="PLease Make an Account")
+                return render_template("login.html", error="Please Make an Account")
         for x in User_data:
             if x.username.replace(" ", "") != Username.replace(" ", "") and x.email.replace(" ", "") != Username.replace(" ", ""):
                 return render_template("login.html", error="Wrong Username", Password=Password, Username=Username)
