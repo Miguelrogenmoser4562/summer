@@ -15,41 +15,66 @@ class User(db.Model):
     password = db.Column(db.String(), nullable=False)
     id = db.Column(db.Integer, primary_key=True)
 
+    def __repr__(self):
+        return '<User %r>' % self.username
+    
+@app.route("/start_data_1815")
+def start_data():
+    db.create_all()
+    return redirect("/")
+
 @app.route("/")
 def home():
     if session.get("user_id") == None:
         return redirect("/login")
+    return render_template("home.html")
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    if session.get("user_id") != None:
-        return redirect("/")
+    if request.method == "GET":
+        if session.get("user_id") != None:
+            return redirect("/")
+        else:
+            return render_template("login.html", error="")
     else:
-        return render_template("login.html")
+        Username = request.form.get("Username")
+        Password = request.form.get("Password")
+        if Password == "" or Username == "":
+            return render_template("login.html", error="Missing info", Password=Password, Username=Username)
+        User_data = db.session.query(User.username, User.email, User.password, User.id).all()
+        if len(User_data) == 0:
+                return render_template("login.html", error="PLease Make an Account")
+        for x in User_data:
+            if x.username.replace(" ", "") != Username.replace(" ", "") and x.email.replace(" ", "") != Username.replace(" ", ""):
+                return render_template("login.html", error="Wrong Username", Password=Password, Username=Username)
+            elif x.password.replace(" ", "") != Password.replace(" ", ""):
+                return render_template("login.html", error="Wrong Password", Password=Password, Username=Username)
+            session['user_id'] = x.id
+            return redirect("/")
+            
+        
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "GET":
         if session.get("user_id") != None:
             return redirect("/")
-        return render_template("register.html")
+        return render_template("register.html", error="none")
     else:
-        if int(request.form['Test']) == 1:
-            if request.form["Email"] == "" or request.form['Password'] == "":
-                return render_template("register.html", error="Email or password missing")
-            Email = request.form["Email"]
-            Password = request.form['Password']
-            person = User(email=Email, password=Password, username="Default" + str(db.session.query(User).count()))
-            db.session.add(person)
-            db.session.commit()
-            return render_template("dummy.html", error="", id=str(db.session.query(User.id).filter(User.email == Email, User.password == Password).all()[0].id))
-        else:
-            if db.session.query(User).filter(User.username == request.form['Username']).count() >= 1:
-                return render_template("dummy.html", error="Username already taken.")
-            if len(request.form['Username']) > 60:
-                return render_template("dummy.html", error="Please pick a shorter name")
-            user = db.session.query(User).filter(User.id == int(request.form["id"])).all()[0]
-            user.username = request.form["Username"]
-            db.session.commit()
-            return "all good!"
+        Email = request.form.get("Email") 
+        Password = request.form.get("Password")
+        Username = request.form.get("Username")
+        if Email == "" or Password == "" or Username == "":
+            return render_template("register.html", error="Missing Info", Email=Email, Username=Username, Password=Password)
+        if len(Username) >= 35:
+            return render_template("register.html", error="Username is too Long", Email=Email, Username=Username, Password=Password)
+        if db.session.query(User).filter(User.username == Username).count() >= 1:
+            return render_template("register.html", error="Username Taken", Email=Email, Username=Username, Password=Password)
+        if db.session.query(User).filter(User.email == Email).count() >= 1:
+            return render_template("register.html", error="Email Already Used", Email=Email, Username=Username, Password=Password)
+        person = User(email=Email, password=Password, username=Username)
+        db.session.add(person)
+        db.session.commit()
+        session["user_id"] = db.session.query(User.id).filter(User.username == Username).first()[0]
+        return redirect("/")

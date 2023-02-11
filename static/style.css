@@ -1,10 +1,78 @@
+html {
+    height: 100%;
+}
+.logo2{
+    -webkit-box-shawon:0 0 25px rgba(34, 114, 34, .90);
+    box-shadow: 0 0 25px rgba(34, 114, 34, .90);
+    border-radius:50%; 
+    width: 92px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+ul {
+    list-style-type: none;
+    margin-top: 1.8%;
+  }
+li{
+    border:none;
+    margin-right: 2.6%;
+    display: inline;
+}
+a{
+    color:white;
+    border-bottom: 2.5px solid rgba(8, 160, 23, 0);
+    text-decoration: none;
+    transition: border-bottom ease 1s;
+}
+a:hover{
+    color:white;
+    border-bottom: 2.5px solid rgba(8, 160, 23, 1);
+}
+
 .container1{
+    margin-top: 5%;
     border-radius: 5px;
     color:whitesmoke;
     width: 500px;
     height: 650px;
     background-color: #202020;
 }
+.animate_start{
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from { opacity:0.2 } 
+    to { opacity:1 }
+  }
+  
+  @keyframes animatebottom { 
+    from{opacity:0.2 } 
+    to{opacity:1 }
+  }
+
+.animate_2{
+    position: relative;
+    -webkit-animation-name: animateleft;
+    -webkit-animation-duration: 2.5s;
+    animation-name: animateleft;
+    animation-duration: 2.5s
+}
+
+@-webkit-keyframes animateleft {
+    from { right:-300px; opacity:0 } 
+    to { right:0px; opacity:1 }
+  }
+  
+  @keyframes animateleft { 
+    from{ right:-300px;} 
+    to{ right:0;}
+  }
 
 .logo{
     border-radius: 50%;
@@ -34,13 +102,12 @@
   }
   
   .underline {
-    position: absolute;
-    margin-top: 50px;
-    left:41.5%;
+    margin:0%;
+    margin-bottom:3%;
     background-color: dodgerblue;
     display: inline-block;
     height: 2px;
-    width:17vw;
+    width:272px;
     -webkit-transform: scale(0, 1);
     transform: scale(0, 1);
     -webkit-transition: all 0.5s linear;
@@ -48,45 +115,43 @@
   }
 
 .background1{
+    color:white;
     background-color: rgba(0, 0, 0, 0.93);
 }
 
 .password {
-    position:absolute;
-    left:56%;
-     margin-top:26px;
+    position: absolute;
+    right: 50%;
+    margin-right: -120px;
+    margin-top: 26px;
 }
 
 @media screen and (max-width: 1300px){
+    .container1{
+        margin-top:2%;
+    }
     .input1{
         text-align: center;
         background-color: #202020;
         color:rgb(255, 255, 255);
         border-radius: 6px;
         height:50px;
-        width:25vw;
+        width:302px;
         border: 1px solid #929499;
         font-size: medium;
     }
     .underline {
-        height: 2px;
-        width:25vw;
-        left:38%;
+        width:302px;
       }
     .password{
-        left:59%;
+        margin-right: -137px;
     }
 }
 
 
 @media screen and (max-width: 800px){
     .container1{
-        margin-bottom: 30%;
-        border-radius: 5px;
-        color:whitesmoke;
-        width: 400px;
-        height: 670px;
-        background-color: #202020;
+        margin-top:2%;
     }
 
     .input1{
@@ -95,24 +160,21 @@
         color:rgb(255, 255, 255);
         border-radius: 6px;
         height:50px;
-        width:35vw;
+        width:295px;
         border: 1px solid #929499;
-        font-size: small;
+        font-size: medium;
         
     }
     .underline {
-        height: 2px;
-        width:35vw;
-        left:33%;
+        width:295px;
       }
       .password{
-        left:62.5%;
+        margin-right: -130px;
     }
 }
 
 
 @media screen and (max-width: 500px){
-    
     .status{
         margin-top: 60%;
     }
@@ -120,73 +182,58 @@
         background-color: #202020;
     }
 
-    .container1{
-        margin-bottom: 30%;
-        border-radius: 5px;
-        color:whitesmoke;
-        width: 300px;
-        height: 560px;
-        background-color: #202020;
-    }
     .input1{
         text-align: center;
         background-color: #202020;
         color:rgb(255, 255, 255);
         border-radius: 6px;
         height:50px;
-        width:80vw;
+        width:310px;
         border: 1px solid #929499;
         font-size: small;
         right:10px;
     }
     
     .underline {
-        margin-top: 0px;
-        height: 2px;
-        width:80vw;
-        left:13%;
+        margin-bottom: 3.5%;
+        width:310px;
       }
-      .password{
-        position: absolute;
-        margin-left:15%;
-        margin-top: -25px;
+    .password{
+        margin-right: -135px;
     }
     .buttons{
         width:200px;
     }
-      @media screen and (max-width:420px){
-      .password{
-        position: absolute;
-        margin-left:21%;
-        margin-top: -25px;
+    @media screen and (max-width: 380px){
+        .input1{
+            width: 250px;
+        }
+        .password{
+            margin-right: -105px;
+        }
+        .underline{
+            width:250px;
+            margin-bottom: 4.3%;
+        }
     }
-    .buttons{
-        width:200px;
+    @media screen and (max-width:300px){
+        .input1{
+            width: 250px;
+        }
+        .password{
+            margin-right: -105px;
+        }
+        .underline{
+            width:250px;
+            margin-bottom: 4.3%;
+        }
+        .text{
+            margin-left:8%;
+            font-size: 22px;
+        }
     }
-}
 }
 
-@media screen and (max-width:375px){
-    .buttons{
-        width:200px;
-    }
-    .password{
-        position: absolute;
-        margin-left:50px;
-        margin-top: 3.6vh;
-    }
-    .input1{
-        text-align: center;
-        background-color: #202020;
-        color:rgb(255, 255, 255);
-        border-radius: 6px;
-        height:50px;
-        width:80vw;
-        border: 1px solid #929499;
-        font-size: small;
-        right:10px;
-    }
-}
 
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: rgb(221, 221, 221);
@@ -220,7 +267,9 @@ body{
 }
 
 .error{
-    margin-top:3%;
+    margin-bottom: -3.5%;
+    line-height: 6.5%;
+    margin-top:5.5%;
     margin-left:25%;
     text-align: center;
     border-radius: 5px;
@@ -230,3 +279,4 @@ body{
     width:55%;
     color: black;
 }
+
