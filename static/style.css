@@ -1,3 +1,44 @@
+/* ANIMATIONS */
+
+@-webkit-keyframes colors {
+    0%  { -webkit-box-shadow: 0 0 10px rgba(0, 255, 0, 0.9);  }
+    25% { -webkit-box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  } 
+    50% { -webkit-box-shadow: 0 0 10px rgba(33, 106, 33, 0.9);  }
+    75% { -webkit-box-shadow: 0 0 10px rgba(39, 160, 39, 0.9);  }
+    100% { -webkit-box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  }
+  }
+  
+  @keyframes colors { 
+    0%  { box-shadow: 0 0 10px rgba(0, 255, 0, 0.9);  }
+    25% { box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  } 
+    50% { box-shadow: 0 0 10px rgba(33, 106, 33, 0.9);  }
+    75% { box-shadow: 0 0 10px rgba(39, 160, 39, 0.9);  }
+    100% { box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  }
+  } 
+
+  @-webkit-keyframes animatebottom {
+    from { opacity:0.2 } 
+    to { opacity:1 }
+  }
+  
+  @keyframes animatebottom { 
+    from{opacity:0.2 } 
+    to{opacity:1 }
+  }
+  @-webkit-keyframes animateleft {
+    from { right:-300px; opacity:0 } 
+    to { right:0px; opacity:1 }
+  }
+  
+  @keyframes animateleft { 
+    from{ right:-300px;} 
+    to{ right:0;}
+  }
+
+
+/* Other stuff*/
+
+
 html {
     height: 100%;
 }
@@ -41,21 +82,62 @@ a:hover{
     animation: colors 3s infinite linear;
 }
 
-@-webkit-keyframes colors {
-    0%  { -webkit-box-shadow: 0 0 10px rgba(0, 255, 0, 0.9);  }
-    25% { -webkit-box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  } 
-    50% { -webkit-box-shadow: 0 0 10px rgba(33, 106, 33, 0.9);  }
-    75% { -webkit-box-shadow: 0 0 10px rgba(39, 160, 39, 0.9);  }
-    100% { -webkit-box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  }
-  }
-  
-  @keyframes colors { 
-    0%  { box-shadow: 0 0 10px rgba(0, 255, 0, 0.9);  }
-    25% { box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  } 
-    50% { box-shadow: 0 0 10px rgba(33, 106, 33, 0.9);  }
-    75% { box-shadow: 0 0 10px rgba(39, 160, 39, 0.9);  }
-    100% { box-shadow: 0 0 10px rgba(35, 218, 35, 0.9);  }
-  }
+#inside{
+    border:2px solid rgb(0, 0, 0); 
+    border-radius: 2rem; 
+    width:42%; 
+    height: 70%; 
+    background-color: #202020; 
+    margin-top:5vh;
+    box-shadow: 0px 0px 3px 2px grey;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(221, 221, 221);
+    font-size: small;
+   }
+.buttons{
+    width:45%;
+    margin-top: 3%;
+    border: 2px solid black;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgb(34, 114, 34);
+}
+.buttons:hover{
+    -webkit-box-shawon:0 0 10px rgba(34, 114, 34, .90);
+    box-shadow: 0 0 10px rgba(34, 114, 34, .90);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+body{
+    font-family:serif
+}
+.status{
+    background-color: white;
+    height: 25px;
+    width:25px;
+    display:inline-block;
+    border-radius:50%;
+    margin-top:8%;
+    transition: background-color .8s ease-in-out;
+}
+
+.error{
+    margin-bottom: -3.5%;
+    line-height: 6.5%;
+    margin-top:5.5%;
+    margin-left:25%;
+    text-align: center;
+    border-radius: 5px;
+    height:6.5%;
+    background-color: rgba(213, 24, 24, .95);
+    border: 2px solid black;
+    width:55%;
+    color: black;
+}
+
+
 .container1{
     margin-top: 5%;
     border-radius: 5px;
@@ -72,16 +154,6 @@ a:hover{
     animation-duration: 1s
 }
 
-@-webkit-keyframes animatebottom {
-    from { opacity:0.2 } 
-    to { opacity:1 }
-  }
-  
-  @keyframes animatebottom { 
-    from{opacity:0.2 } 
-    to{opacity:1 }
-  }
-
 .animate_2{
     position: relative;
     -webkit-animation-name: animateleft;
@@ -90,15 +162,6 @@ a:hover{
     animation-duration: 2.5s
 }
 
-@-webkit-keyframes animateleft {
-    from { right:-300px; opacity:0 } 
-    to { right:0px; opacity:1 }
-  }
-  
-  @keyframes animateleft { 
-    from{ right:-300px;} 
-    to{ right:0;}
-  }
 
 .logo{
     border-radius: 50%;
@@ -152,10 +215,10 @@ a:hover{
     margin-top: 26px;
 }
 
+/* MEDIA SCREEN */
+
+
 @media screen and (max-width: 1300px){
-    .container1{
-        margin-top:2%;
-    }
     .input1{
         text-align: center;
         background-color: #202020;
@@ -176,10 +239,6 @@ a:hover{
 
 
 @media screen and (max-width: 800px){
-    .container1{
-        margin-top:2%;
-    }
-
     .input1{
         text-align: center;
         background-color: #202020;
@@ -259,50 +318,3 @@ a:hover{
         }
     }
 }
-
-
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: rgb(221, 221, 221);
-    font-size: small;
-   }
-.buttons{
-    width:45%;
-    margin-top: 3%;
-    border: 2px solid black;
-    padding: 7px;
-    border-radius: 5px;
-    background-color: rgb(34, 114, 34);
-}
-.buttons:hover{
-    -webkit-box-shawon:0 0 10px rgba(34, 114, 34, .90);
-    box-shadow: 0 0 10px rgba(34, 114, 34, .90);
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-body{
-    font-family:serif
-}
-.status{
-    background-color: white;
-    height: 25px;
-    width:25px;
-    display:inline-block;
-    border-radius:50%;
-    margin-top:8%;
-    transition: background-color .8s ease-in-out;
-}
-
-.error{
-    margin-bottom: -3.5%;
-    line-height: 6.5%;
-    margin-top:5.5%;
-    margin-left:25%;
-    text-align: center;
-    border-radius: 5px;
-    height:6.5%;
-    background-color: rgba(213, 24, 24, .95);
-    border: 2px solid black;
-    width:55%;
-    color: black;
-}
-

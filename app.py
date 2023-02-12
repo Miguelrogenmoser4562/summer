@@ -14,6 +14,7 @@ class User(db.Model):
     email = db.Column(db.String(), nullable=False)
     password = db.Column(db.String(), nullable=False)
     id = db.Column(db.Integer, primary_key=True)
+    points = db.Column(db.Integer, default=0)
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -28,6 +29,9 @@ def home():
     if session.get("user_id") == None:
         return redirect("/login")
     Username = db.session.query(User.username).filter(User.id == session["user_id"]).all()[0].username
+
+    # Scoreboard
+    users = db.session.query(User.username, User.points).limit(10).all()
     return render_template("home.html", Username=Username)
 
 
