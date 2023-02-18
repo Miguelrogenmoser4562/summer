@@ -38,6 +38,9 @@
 
 /* Other stuff*/
 
+.tables_{
+    height: 9%;
+}
 
 html {
     height: 100%;
@@ -82,14 +85,27 @@ a:hover{
     animation: colors 3s infinite linear;
 }
 
-#inside{
+#inside1{
     border:2px solid rgb(0, 0, 0); 
     border-radius: 2rem; 
     width:42%; 
     height: 70%; 
     background-color: #202020; 
-    margin-top:5vh;
+    margin-top:3vh;
     box-shadow: 0px 0px 3px 2px grey;
+    margin-left:6%; 
+    float: left;
+}
+#inside2{
+    border:2px solid rgb(0, 0, 0); 
+    border-radius: 2rem; 
+    width:42%; 
+    height: 70%; 
+    background-color: #202020; 
+    margin-top:3vh;
+    box-shadow: 0px 0px 3px 2px grey;
+    margin-right:6%; 
+    float:right;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
@@ -264,6 +280,28 @@ body{
     }
 }
 
+@media screen and (max-width: 560px){
+    #home{
+        background-color: #181818; 
+        border-radius: 2rem;
+        margin-left:7.5%;
+        width:85%;
+        height:75%;
+    }
+    #inside1{ 
+        width:80%; 
+        height: 35%;
+        margin-left:10%;
+        float: left;
+    }
+    #inside2{
+        margin-top: 7%;
+        width:80%; 
+        height: 35%;  
+        margin-left:10%;
+        float:left;
+    }
+}
 
 @media screen and (max-width: 500px){
     .status{
