@@ -136,7 +136,13 @@ body{
     width:55%;
     color: black;
 }
-
+  table:last-child tr:last-child td:last-child {
+    border-bottom-right-radius: 2rem;
+  }
+  table:last-child tr:last-child th:first-child {
+    border-bottom-left-radius: 2rem;
+  }
+  
 
 .container1{
     margin-top: 5%;

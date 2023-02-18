@@ -32,7 +32,9 @@ def home():
 
     # Scoreboard
     users = db.session.query(User.username, User.points).limit(10).all()
-    return render_template("home.html", Username=Username)
+    users_needed = db.session.query(User).limit(10).count()
+    
+    return render_template("home.html", users=users, count=users_needed, Username=Username)
 
 
 @app.route("/login", methods=["GET", "POST"])
