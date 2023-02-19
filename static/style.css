@@ -60,7 +60,7 @@ ul {
   }
 li{
     border:none;
-    margin-right: 2.6%;
+    margin-right: 3%;
     display: inline;
 }
 a{
@@ -281,6 +281,13 @@ body{
 }
 
 @media screen and (max-width: 560px){
+    .logo2{
+        margin-left: -10px;
+        width: 85px;
+    }
+    ul {
+        margin-top: 6%;
+      }
     #home{
         background-color: #181818; 
         border-radius: 2rem;

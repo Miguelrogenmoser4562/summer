@@ -15,13 +15,35 @@ class User(db.Model):
     password = db.Column(db.String(), nullable=False)
     id = db.Column(db.Integer, primary_key=True)
     points = db.Column(db.Integer, default=0)
+    admin = db.Column(db.Integer, default=0)
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+class Games(db.Model):
+    local = db.Column(db.String())
+    visitor = db.Column(db.String())
+    result = db.Column(db.String())
+    id = db.Column(db.Integer, primary_key=True)
+    round = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '<Game %r>' % self.id
     
 @app.route("/start_data_1815")
 def start_data():
     db.create_all()
+    return redirect("/")
+
+@app.route("/first_admin")
+def first_admin():
+    if session.get("user_id") == None:
+        return redirect("/login")
+    if db.session.query(User).filter(User.admin == 1).count() > 0:
+        return "MORE THAN ONE ADMIN"
+    user = db.session.query(User).filter(User.id == session["user_id"]).all()
+    user[0].admin = 1
+    db.session.commit()
     return redirect("/")
 
 @app.route("/")
@@ -33,8 +55,8 @@ def home():
     # Scoreboard
     users = db.session.query(User.username, User.points).limit(10).all()
     users_needed = db.session.query(User).limit(10).count()
-    
-    return render_template("home.html", users=users, count=users_needed, Username=Username)
+    admin = db.session.query(User).filter(User.id == session["user_id"]).all()[0].admin
+    return render_template("home.html", users=users, count=users_needed, Username=Username, admin=admin)
 
 
 @app.route("/login", methods=["GET", "POST"])

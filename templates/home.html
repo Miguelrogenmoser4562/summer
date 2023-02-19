@@ -18,6 +18,11 @@
             <li>
                 <a href="#">Games</a>
             </li>
+            {% if admin == 1%}
+            <li>
+                <a href="#">Add Game</a>
+            </li>
+            {% endif %}
         </ul>
         <div id="home">
             <p style="margin-left:5%; margin-top: 6.5vh; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; color:rgb(236, 231, 231); text-align: center;">Hello <b>{{Username}}</b></p>
