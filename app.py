@@ -48,15 +48,16 @@ def first_admin():
 
 @app.route("/")
 def home():
-    if session.get("user_id") == None:
-        return redirect("/login")
-    Username = db.session.query(User.username).filter(User.id == session["user_id"]).all()[0].username
+    if request.method == "GET":
+        if session.get("user_id") == None:
+            return redirect("/login")
+        Username = db.session.query(User.username).filter(User.id == session["user_id"]).all()[0].username
 
-    # Scoreboard
-    users = db.session.query(User.username, User.points).limit(10).all()
-    users_needed = db.session.query(User).limit(10).count()
-    admin = db.session.query(User).filter(User.id == session["user_id"]).all()[0].admin
-    return render_template("home.html", users=users, count=users_needed, Username=Username, admin=admin)
+        # Scoreboard
+        users = db.session.query(User.username, User.points).order_by(User.points).limit(10).all()
+        users_needed = db.session.query(User).limit(10).count()
+        admin = db.session.query(User).filter(User.id == session["user_id"]).all()[0].admin
+        return render_template("home.html", users=users, count=users_needed, Username=Username, admin=admin)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -107,3 +108,8 @@ def register():
         db.session.commit()
         session["user_id"] = db.session.query(User.id).filter(User.username == Username).first()[0]
         return redirect("/")
+@app.route("/scoreboard", methods=["POST"])
+def scoreboard():
+    Users = db.session.query(User).order_by(User.points).all()
+    User_count = db.session.query(User).count()
+    return render_template("scoreboard.html", users=Users, count=User_count)

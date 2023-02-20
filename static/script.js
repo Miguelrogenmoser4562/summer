@@ -46,3 +46,20 @@ function form_submit(){
         document.getElementById("form").submit();
     }
 }
+
+function Change_page(localtion){
+    var ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = function(){
+        if (ajax.readyState == 4 && ajax.status == 200){
+            $("#home").fadeOut(450);
+            setTimeout(function(){
+                $("#home").html(ajax.responseText);
+            }, 450)
+            $("#home").fadeIn(450);
+            $
+        }
+    }
+    ajax.open("POST", localtion, true);
+    ajax.send();
+}
+
